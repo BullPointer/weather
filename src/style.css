@@ -4,29 +4,32 @@
     box-sizing: border-box;
 }
 .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
     width: 100%;
     min-height: 100vh;
     padding-bottom: 30px;
     background: url('./image/backgroundImg.jpg') no-repeat fixed center;
 }
-.container .left-weather {
+.container .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+.container .content .left-weather {
     display: flex;
     flex-direction: column;
 }
-.container .left-weather .leftCloud {
+.container .content .left-weather .leftCloud {
     width: 120px;
     height: 120px;
 }
-.container .left-weather, .right-weather {
+.container .content .left-weather, .right-weather {
     margin-top: 30px;
 }
-.container .left-weather .left {
+.container .content .left-weather .left {
     margin-bottom: 30px;
 }
-.container .left-weather input[type='search'] {
+.container .content .left-weather input[type='search'] {
     width: 300px;
     padding: 10px 0;
     outline: none;
@@ -35,36 +38,36 @@
     border-bottom: 1px solid rgb(44, 44, 97);
     background: transparent;
 }
-.container .left-weather .title {
+.container .content .left-weather .title {
     font-size: 40px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: rgb(196, 92, 92);
 }
-.container .left-weather .date {
+.container .content .left-weather .date {
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     color: rgb(27, 4, 4);
     opacity: 0.7;
 }
-.container .left-weather .place {
+.container .content .left-weather .place {
     font-size: 30px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(88, 33, 33);
 }
-.container .right-weather .right {
+.container .content .right-weather .right {
     margin-bottom: 10px;
 }
-.container .left-weather .leftDegree, .right-weather .rightDegree {
+.container .content .left-weather .leftDegree, .right-weather .rightDegree {
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: left;
     margin-bottom: 20px;
 }
-.container .left-weather .leftDegree .imgSvg, .right-weather .rightDegree .imgSvg {
+.container .content .left-weather .leftDegree .imgSvg, .right-weather .rightDegree .imgSvg {
     opacity: 0.7;
 }
-.container .left-weather .leftDegree .degree {
+.container .content .left-weather .leftDegree .degree {
     margin: 0 20px 0 0;
     font-size: 60px;
     font-weight: bold;
@@ -73,12 +76,12 @@
     opacity: 0.7;
 }
 
-.container .right-weather .right .more-msg {
+.container .content .right-weather .right .more-msg {
     font-size: 18px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-style: italic;
 }
-.container .right-weather .right .in-degree {
+.container .content .right-weather .right .in-degree {
     font-size: 40px;
     opacity: 0.7;
 }

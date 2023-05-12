@@ -42,3 +42,12 @@ export const degreeFuncRight = (
     )
     return box;
 }
+export const degreeFunc = (txt, className, position, size) => {
+    const box = document.createElement('div');
+    box.classList.add(position);
+    box.append(
+        weatherDivOne(txt, className, 'left'),
+        degreeSvg('imgSvg', size, size)
+    )
+    return box;
+}
