@@ -1,17 +1,20 @@
-import dayjs from "dayjs";
-import { getDailyApi } from "./api/fetchApi";
+import showHour from "./showHour";
+import showWeather from "./showWeather";
 
 const link = 'http://api.weatherapi.com/v1/forecast.json';
 
-export default function (elem) {
-    elem.addEventListener('click', () => {
+const weather = [showWeather, showHour]
+export default function () {
+    const elem = document.querySelector('.weatherDisplay');
+    const button = document.querySelectorAll('.button');
+    weather[0](elem);
+    for (let index = 0; index < button.length; index++) {
 
-        getDailyApi(link, 'lagos', '7').then((res) => {
-            const { forecastday } = res.forecast;
-            console.log(forecastday);
-            for (let index = 0; index < forecastday.length; index++) {
-                console.log(dayjs(forecastday[index].date).format('dddd'));
+        button[index].addEventListener('click', () => {
+            while (elem.hasChildNodes()) {
+                elem.firstChild.remove()
             }
-        })
-    });
+            return weather[index](elem);
+        });   
+    }
 }

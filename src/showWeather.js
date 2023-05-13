@@ -39,12 +39,10 @@ function accordContainer(forecastday, index, className) {
     return elem;
 }
 
-export default function() {
+export default function(elem) {
     const link = 'http://api.weatherapi.com/v1/forecast.json';
-    const elem = document.querySelector('.weatherDisplay');
-    getDailyApi(link, 'lagos', '7').then((res) => {
+    getDailyApi(link, 'usa', '7').then((res) => {
         const { forecastday } = res.forecast;
-        // console.log(forecastday);
         for (let index = 0; index < forecastday.length; index++) {
             elem.appendChild(
                 accordContainer(forecastday, index, 'forcast')

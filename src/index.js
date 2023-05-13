@@ -5,6 +5,7 @@ import leftWeather from './leftWeather';
 import weatherButtons from './weatherButtons';
 import showWeather from './showWeather';
 import createDiv from './createDiv';
+import weatherInfo from './weatherInfo';
 
 class Container {
     weatherDiv = () => {
@@ -16,8 +17,7 @@ class Container {
     }
     weather() {
         document.body.appendChild(container.weatherDiv());
-        showWeather();
-
+        return weatherInfo();
     }
 }
 
