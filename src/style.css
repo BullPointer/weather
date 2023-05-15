@@ -3,9 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    min-height: 100vh;
+}
 .container {
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(70vh + 100vh);
     padding-bottom: 30px;
     background: url('./image/backgroundImg.jpg') no-repeat fixed center;
 }
@@ -29,13 +32,16 @@
 .container .content .left-weather .left {
     margin-bottom: 30px;
 }
-.container .content .left-weather input[type='search'] {
+.container .content .left-weather .search-box{
     width: 300px;
+    display: flex;
+    border-bottom: 1px solid rgb(44, 44, 97);
+}
+.container .content .left-weather input[type='search'] {
     padding: 10px 0;
     outline: none;
     font-size: 20px;
     border: none;
-    border-bottom: 1px solid rgb(44, 44, 97);
     background: transparent;
 }
 .container .content .left-weather .title {

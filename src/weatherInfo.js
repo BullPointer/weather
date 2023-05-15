@@ -1,7 +1,6 @@
 import showHour from "./showHour";
 import showWeather from "./showWeather";
 
-const link = 'http://api.weatherapi.com/v1/forecast.json';
 
 const weather = [showWeather, showHour]
 export default function () {
@@ -15,6 +14,7 @@ export default function () {
                 elem.firstChild.remove()
             }
             return weather[index](elem);
+
         });   
     }
 }

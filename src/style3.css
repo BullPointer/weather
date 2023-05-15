@@ -1,0 +1,59 @@
+.container .box .weatherDisplay .loopContainer{
+    display: none;
+}
+.container .box .weatherDisplay .active{
+    display: contents;
+}
+
+.container .box .left-arrow, .right-arrow {
+    display: none;
+    padding: 8px;
+    margin: 30px 20px 20px 20px;
+    font-size: 25px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    color: rgb(122, 84, 84);
+}
+.container .box .left-arrow:hover, .right-arrow:hover {
+    border: 3px solid rgb(138, 131, 131);
+    border-radius: 100%;
+}
+.container .box .arrow {
+    display: inline-block;
+}
+
+
+.container .box .weatherDisplay .day-forcast{
+    overflow-x: hidden;
+}
+.container .box .weatherDisplay .day-forcast .day {
+    margin-top: 20px;
+    font-size: large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+.container .box .weatherDisplay .day-forcast .accord {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0;
+}
+.container .box .weatherDisplay .day-forcast .accord .min-degree {
+    font-size: 13px;
+    font-weight: 200;
+}
+.container .box .weatherDisplay .day-forcast .accord .avg-degree {
+    font-size: 17px;
+    font-weight: 600;
+}
+.container .box .weatherDisplay .day-forcast .accord .max-degree {
+    font-size: 20px;
+    font-weight: bold;
+}
+.container .box .weatherDisplay .day-forcast .accord .cloud-icon {
+    width: 5px;
+    margin: 0;
+    padding: 0;
+    font-size: 5px;
+}

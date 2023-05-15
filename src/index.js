@@ -1,9 +1,9 @@
 import './style.css';
 import './style2.css';
+import './style3.css';
 import rightWeather from './rightWeather';
 import leftWeather from './leftWeather';
 import weatherButtons from './weatherButtons';
-import showWeather from './showWeather';
 import createDiv from './createDiv';
 import weatherInfo from './weatherInfo';
 
@@ -16,10 +16,22 @@ class Container {
         return elem;
     }
     weather() {
-        document.body.appendChild(container.weatherDiv());
-        return weatherInfo();
+        window.onload = function (e) {
+            const country = localStorage.getItem('country');
+            if (country === '' || country === 'undefined') {
+                localStorage.setItem("country", 'usa');
+            }
+        };
+        window.onscroll = function (e) {
+            localStorage.setItem("scrollpos", window.scrollY);
+        };
+        document.body.appendChild(this.weatherDiv());
+        weatherInfo();
     }
 }
 
 const container = new Container();
 container.weather();
+
+var scrollpos = localStorage.getItem("scrollpos");
+if (scrollpos) window.scrollTo(0, scrollpos);

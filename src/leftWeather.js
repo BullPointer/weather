@@ -2,22 +2,27 @@ import { getApi } from './api/fetchApi';
 import { weatherDivOne, degreeFuncLeft } from './weatherDiv';
 import cloudImg from './image/cloudImg';
 import dayjs from 'dayjs';
+import createDiv from './createDiv';
+import search_svg from './svg/search_svg';
+import searchSubmit from './searchSubmit';
 
 const link = 'http://api.weatherapi.com/v1/current.json';
 
 const searchWether = () => {
+    const seachBox = createDiv('search-box');
     const search = document.createElement('input');
     search.type = 'search';
     search.placeholder = 'Search location';
     search.classList.add('search-location');
-    return search;
+    seachBox.append(search, search_svg('search-btn', '24', '24'));
+    return seachBox;
 }
 
 export default function() {
+    var country = localStorage.getItem("country");
     const elem = document.createElement('div');
     elem.classList.add('left-weather');
-
-    getApi(link, 'usa').then((res) => {
+    getApi(link, country).then((res) => {
         elem.append(
             weatherDivOne('Remedy Weather', 'title', 'left'),
             weatherDivOne(
@@ -28,6 +33,7 @@ export default function() {
             cloudImg('leftCloud', res.current.condition.icon),
             searchWether(),
         );
+        searchSubmit();
     });
     return elem;
 }

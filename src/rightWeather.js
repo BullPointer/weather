@@ -1,13 +1,14 @@
 import { getApi } from './api/fetchApi';
-import { degreeFuncLeft, degreeFuncRight, weatherDivTwo } from './weatherDiv';
+import { degreeFuncRight, weatherDivTwo } from './weatherDiv';
 
 const link = 'http://api.weatherapi.com/v1/current.json';
 
 export default function() {
+    var country = localStorage.getItem("country");
     const elem = document.createElement('div');
     elem.classList.add('right-weather');
 
-    getApi(link, 'usa').then((res) => {
+    getApi(link, country).then((res) => {
         elem.append(
             degreeFuncRight(
                 'Feels like', 'more-msg',

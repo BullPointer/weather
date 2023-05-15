@@ -40,13 +40,19 @@ function accordContainer(forecastday, index, className) {
 }
 
 export default function(elem) {
+    const country = localStorage.getItem('country');
     const link = 'http://api.weatherapi.com/v1/forecast.json';
-    getDailyApi(link, 'usa', '7').then((res) => {
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    leftArrow.classList.remove('arrow');
+    rightArrow.classList.remove('arrow');
+
+    getDailyApi(link, country, '7').then((res) => {
         const { forecastday } = res.forecast;
         for (let index = 0; index < forecastday.length; index++) {
             elem.appendChild(
                 accordContainer(forecastday, index, 'forcast')
             );
         }
-    })
+    }).catch(() => {})
 }

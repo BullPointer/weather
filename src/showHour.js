@@ -2,6 +2,8 @@ import dayjs from "dayjs";
 import { getDailyApi } from "./api/fetchApi";
 import { degreeFunc } from "./weatherDiv";
 import cloudImg from "./image/cloudImg";
+import { displayHour } from "./toggle";
+
 
 function weather(txt, className) {
     const elem = document.createElement('div');
@@ -28,15 +30,17 @@ function accordContainer(hour, index, className) {
 }
 
 export default function() {
+    const country = localStorage.getItem('country');
     const link = 'http://api.weatherapi.com/v1/forecast.json';
     const elem = document.querySelector('.weatherDisplay');
-    getDailyApi(link, 'lagos', '7').then((res) => {
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    leftArrow.classList.add('arrow');
+    rightArrow.classList.add('arrow');
+
+    getDailyApi(link, country, '7').then((res) => {
         const { hour } = res.forecast.forecastday[0];
-        console.log(hour);
-        for (let index = 0; index < hour.length; index++) {
-            elem.appendChild(
-                accordContainer(hour, index, 'forcast')
-            );
-        }
-    })
+        displayHour(elem, hour, accordContainer);
+        
+    }).catch(() => {})
 }

@@ -1,12 +1,10 @@
-// import weatherInfo from "./weatherInfo";
 import createDiv from "./createDiv";
 
-function button(txt) {
+function button(txt, className) {
     const button = document.createElement('button');
-    button.classList.add('button');
+    button.classList.add(className);
     button.textContent = txt;
     button.name = txt.toLowerCase();
-    // weatherInfo(button);
     return button;
 }
 
@@ -14,8 +12,10 @@ export default function() {
     const box = document.createElement('div');
     box.classList.add('box');
     box.append(
-        button('Daily'), 
-        button('Hourly'), 
+        button('Daily', 'button'), 
+        button('Hourly', 'button'), 
+        button('<', 'left-arrow'), 
+        button('>', 'right-arrow'), 
         createDiv('weatherDisplay')
     );
     return box;
