@@ -3,7 +3,7 @@ import { degreeFuncRight, weatherDivTwo } from './weatherDiv';
 import errorFunc from './errorFunc';
 
 export default function() {
-    const link = 'http://api.weatherapi.com/v1/current.json';
+    const link = 'https://api.weatherapi.com/v1/current.json';
     var country = localStorage.getItem("country");
     const elem = document.createElement('div');
     elem.classList.add('right-weather');

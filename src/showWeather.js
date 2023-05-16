@@ -42,7 +42,7 @@ function accordContainer(forecastday, index, className) {
 
 export default function(elem) {
     const country = localStorage.getItem('country');
-    const link = 'http://api.weatherapi.com/v1/forecast.json';
+    const link = 'https://api.weatherapi.com/v1/forecast.json';
     const leftArrow = document.querySelector('.left-arrow');
     const rightArrow = document.querySelector('.right-arrow');
     leftArrow.classList.remove('arrow');

@@ -17,7 +17,7 @@ export default function() {
     });
     searchBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        const link = 'http://api.weatherapi.com/v1/current.json';
+        const link = 'https://api.weatherapi.com/v1/current.json';
         const container = document.querySelector('.container');
         const weatherDisplay = document.querySelector('.weatherDisplay');
         const content = createDiv('content');
