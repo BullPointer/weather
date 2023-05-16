@@ -39,7 +39,7 @@ export default function() {
     rightArrow.classList.add('arrow');
 
     getDailyApi(link, country, '7').then((res) => {
-        const { hour } = res.forecast.forecastday[0];
+        const { hour } = res.data.forecast.forecastday[0];
         displayHour(elem, hour, accordContainer);
         
     }).catch(() => {})

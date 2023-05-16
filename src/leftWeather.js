@@ -6,7 +6,7 @@ import createDiv from './createDiv';
 import search_svg from './svg/search_svg';
 import searchSubmit from './searchSubmit';
 
-const link = 'http://api.weatherapi.com/v1/current.json';
+
 
 const searchWether = () => {
     const seachBox = createDiv('search-box');
@@ -19,6 +19,7 @@ const searchWether = () => {
 }
 
 export default function() {
+    const link = 'http://api.weatherapi.com/v1/current.json';
     var country = localStorage.getItem("country");
     const elem = document.createElement('div');
     elem.classList.add('left-weather');
@@ -26,14 +27,19 @@ export default function() {
         elem.append(
             weatherDivOne('Remedy Weather', 'title', 'left'),
             weatherDivOne(
-                dayjs(res.current.last_updated).format('MMM, ddd D h:mm A'),
+                dayjs(res.data.current.last_updated).format('MMM, ddd D h:mm A'),
                 'date', 'left'),
-            weatherDivOne(res.location.country, 'place', 'left'),
-            degreeFuncLeft(res.current.temp_c, 'degree', 'leftDegree', '40'),
-            cloudImg('leftCloud', res.current.condition.icon),
+            weatherDivOne(res.data.location.country, 'place', 'left'),
+            degreeFuncLeft(res.data.current.temp_c, 'degree', 'leftDegree', '40'),
+            cloudImg('leftCloud', res.data.current.condition.icon),
             searchWether(),
         );
         searchSubmit();
+    }).catch((e) => { 
+        localStorage.setItem("country", 'usa');
+
+        alert(e.response.data.error.message); 
+        console.log(prevCountry);
     });
     return elem;
 }
