@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import { getDailyApi } from "./api/fetchApi";
 import { degreeFunc } from "./weatherDiv";
 import cloudImg from "./image/cloudImg";
+import errorFunc from "./errorFunc";
 
 function weather(txt, className) {
     const elem = document.createElement('div');
@@ -54,5 +55,9 @@ export default function(elem) {
                 accordContainer(forecastday, index, 'forcast')
             );
         }
-    }).catch(() => {})
+    }).catch(() => {
+        const elem = errorFunc(e.response.data.error.message);  
+        elem.classList.remove('active');
+        setTimeout(() => elem.classList.add('active'), 5000);
+    })
 }

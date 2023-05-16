@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import createDiv from './createDiv';
 import search_svg from './svg/search_svg';
 import searchSubmit from './searchSubmit';
-
+import errorFunc from './errorFunc';
 
 
 const searchWether = () => {
@@ -36,10 +36,9 @@ export default function() {
         );
         searchSubmit();
     }).catch((e) => { 
-        localStorage.setItem("country", 'usa');
-
-        alert(e.response.data.error.message); 
-        console.log(prevCountry);
+        const elem = errorFunc(e.response.data.error.message);  
+        elem.classList.remove('active');
+        setTimeout(() => elem.classList.add('active'), 5000);
     });
     return elem;
 }

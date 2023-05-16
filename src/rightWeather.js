@@ -1,9 +1,9 @@
 import { getApi } from './api/fetchApi';
 import { degreeFuncRight, weatherDivTwo } from './weatherDiv';
-
-const link = 'http://api.weatherapi.com/v1/current.json';
+import errorFunc from './errorFunc';
 
 export default function() {
+    const link = 'http://api.weatherapi.com/v1/current.json';
     var country = localStorage.getItem("country");
     const elem = document.createElement('div');
     elem.classList.add('right-weather');
@@ -33,7 +33,9 @@ export default function() {
             ),
         );
     }).catch((e) => {
-        console.log(e.response.data.error.message); 
+        const elem = errorFunc(e.response.data.error.message);  
+        elem.classList.remove('active');
+        setTimeout(() => elem.classList.add('active'), 5000); 
     });
     return elem;
 }

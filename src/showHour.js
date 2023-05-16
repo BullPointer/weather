@@ -3,6 +3,7 @@ import { getDailyApi } from "./api/fetchApi";
 import { degreeFunc } from "./weatherDiv";
 import cloudImg from "./image/cloudImg";
 import { displayHour } from "./toggle";
+import errorFunc from "./errorFunc";
 
 
 function weather(txt, className) {
@@ -42,5 +43,9 @@ export default function() {
         const { hour } = res.data.forecast.forecastday[0];
         displayHour(elem, hour, accordContainer);
         
-    }).catch(() => {})
+    }).catch(() => {
+        const elem = errorFunc(e.response.data.error.message);  
+        elem.classList.remove('active');
+        setTimeout(() => elem.classList.add('active'), 5000);
+    })
 }
