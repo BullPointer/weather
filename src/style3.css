@@ -98,3 +98,14 @@
 
     }
 }
+
+@media only screen and (max-width: 700px) {
+    .container .box .weatherDisplay .active{
+        display: flex;
+        flex-direction: column;
+    }
+    .container .box .left-arrow, .right-arrow {
+        padding: 3px;
+        margin: 30px 8px 20px 8px;
+    }
+}
