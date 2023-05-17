@@ -122,3 +122,8 @@ body {
         opacity: 1;
     }
 }
+@media only screen and (max-width: 400px) {
+    .container .content .left-weather .date {
+        color: white;
+    }
+}
