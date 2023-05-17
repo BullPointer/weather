@@ -51,7 +51,7 @@
         display: flex; 
         flex-direction: column;
         align-items: center;
-        color: white;
+        color: black;
     }
     .container .box .button {
         padding: 4px;

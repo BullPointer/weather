@@ -101,7 +101,12 @@ body {
         color: rgb(100, 84, 84);
     }
     .container .content .left-weather .date {
-        color: white;
+        color: rgb(102, 84, 84);
+        font-weight: 700;
+    }
+    .container .content .right-weather .right .more-msg {
+        font-weight: 700;
+        color: rgb(168, 133, 133);
     }
     .container .content .left-weather .date {
         opacity: 1;
@@ -113,6 +118,7 @@ body {
         opacity: 1;
     }
     .container .content .right-weather .right .in-degree {
+        color: black;
         opacity: 1;
     }
 }
