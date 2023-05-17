@@ -101,6 +101,18 @@ body {
         color: rgb(100, 84, 84);
     }
     .container .content .left-weather .date {
-        color: rgb(128, 111, 111);
+        color: white;
+    }
+    .container .content .left-weather .date {
+        opacity: 1;
+    }
+    .container .content .left-weather .leftDegree .imgSvg, .right-weather .rightDegree .imgSvg {
+        opacity: 1;
+    }
+    .container .content .left-weather .leftDegree .degree {
+        opacity: 1;
+    }
+    .container .content .right-weather .right .in-degree {
+        opacity: 1;
     }
 }
