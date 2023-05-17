@@ -101,7 +101,7 @@ body {
         color: rgb(100, 84, 84);
     }
     .container .content .left-weather .date {
-        color: rgb(102, 84, 84);
+        color: rgb(248, 248, 248);
         font-weight: 700;
     }
     .container .content .right-weather .right .more-msg {
